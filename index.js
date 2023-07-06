@@ -38,7 +38,25 @@ function getViewportSize() {
 }
 
 function changeColor(e) {
-	e.target.style.backgroundColor = "black"; 
+	if (randomColor)  {
+		if (!e.target.classList.contains("colored")) {
+			e.target.style.backgroundColor = getRandomColor();
+		}
+	}
+	else {
+		e.target.style.backgroundColor = "black"; 
+	}
+
+	e.target.classList.add("colored");
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 function promptForSize() {
