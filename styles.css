@@ -3,7 +3,12 @@
 	flex-wrap: wrap;
 }
 
-#size {
+#buttons {
+	display: flex;
+	justify-content: center;
+}
+
+button {
 	margin: 8px;
 }
 
