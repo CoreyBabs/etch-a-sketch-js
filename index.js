@@ -10,7 +10,7 @@ function createGrid(dim) {
 		div.style.width = `${sw}px`;
 		div.style.height = `${sh}px`;
 		// div.textContent = i;
-		div.addEventListener('mouseenter', (e) => { e.target.style.backgroundColor = "black"; });
+		div.addEventListener('mouseenter', changeColor);
 		container.appendChild(div);
 	}
 }
@@ -38,7 +38,7 @@ function getViewportSize() {
 }
 
 function changeColor(e) {
-	
+	e.target.style.backgroundColor = "black"; 
 }
 
 function promptForSize() {
@@ -54,8 +54,18 @@ function promptForSize() {
 	createGrid(dim);
 }
 
+function subscribeButton(tag, func) {
+	let btn = document.querySelector(tag);
+	btn.addEventListener("click", func);
+}
+
 sizeContainer();
 createGrid(16);
 
-let sizeBtn = document.querySelector("#size");
-sizeBtn.addEventListener("click", promptForSize);
+subscribeButton("#size", promptForSize);
+subscribeButton("#normal", () => { randomColor = false; progressive	= false; });
+subscribeButton("#random", () => { randomColor = true; progressive	= false; });
+subscribeButton("#progressive", () => { randomColor = false; progressive = true; });
+
+randomColor = false;
+progressive = false;
