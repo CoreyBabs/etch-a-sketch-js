@@ -1,0 +1,11 @@
+#container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.square {
+	/* background-color: 'black'; */
+	/* border: 1px solid mediumturquoise; */
+	padding: 0px;
+	margin: 0px;
+}
