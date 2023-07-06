@@ -3,6 +3,11 @@
 	flex-wrap: wrap;
 }
 
+#size {
+	text-align: center;
+	margin: 8px;
+}
+
 .square {
 	/* background-color: 'black'; */
 	/* border: 1px solid mediumturquoise; */
