@@ -9,7 +9,8 @@ function createGrid(dim) {
 		div.classList.add("square");
 		div.style.width = `${sw}px`;
 		div.style.height = `${sh}px`;
-		div.textContent = i;
+		// div.textContent = i;
+		div.addEventListener('mouseenter', (e) => { e.target.style.backgroundColor = "black"; });
 		container.appendChild(div);
 	}
 }
@@ -34,6 +35,10 @@ function getViewportSize() {
 	const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 	const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 	return [vw, vh];
+}
+
+function changeColor(e) {
+	
 }
 
 function promptForSize() {

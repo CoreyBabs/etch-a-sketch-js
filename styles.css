@@ -4,13 +4,10 @@
 }
 
 #size {
-	text-align: center;
 	margin: 8px;
 }
 
 .square {
-	/* background-color: 'black'; */
-	/* border: 1px solid mediumturquoise; */
 	padding: 0px;
 	margin: 0px;
 }
