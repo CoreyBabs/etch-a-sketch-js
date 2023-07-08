@@ -43,6 +43,16 @@ function changeColor(e) {
 			e.target.style.backgroundColor = getRandomColor();
 		}
 	}
+	else if (progressive) {
+		if (!e.target.classList.contains("colored")) {
+			e.target.style.backgroundColor = "rgb(229, 229, 229)";
+		}
+		else {
+			let [r, g, b] = getRgbFromString(e.target.style.backgroundColor);
+			let newRgb = Math.max(0, r - 26);
+			e.target.style.backgroundColor = `rgb(${newRgb}, ${newRgb}, ${newRgb})`;
+		}
+	}
 	else {
 		e.target.style.backgroundColor = "black"; 
 	}
@@ -57,6 +67,11 @@ function getRandomColor() {
 		color += letters[Math.floor(Math.random() * 16)];
 	}
 	return color;
+}
+
+function getRgbFromString(color) {
+	// hack to convert "rgb(r, g, b)" -> [r, g, b]
+	return color.substr(4).split(")")[0].split(",").map(Number);
 }
 
 function promptForSize() {
